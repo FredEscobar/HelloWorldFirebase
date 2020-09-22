@@ -10,7 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: '/functions'
+  displayName: 'Install npm packages'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '/functions'
+    customCommand: 'run build'
+  displayName: "Build"
