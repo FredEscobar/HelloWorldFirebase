@@ -13,11 +13,12 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: '/functions'
+    workingDir: './functions'
+    verbose: true
   displayName: 'Install npm packages'
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '/functions'
-    customCommand: 'run build'
+    workingDir: './functions'
+    customCommand: 'run build --verbose'
   displayName: "Build"
