@@ -22,3 +22,9 @@ steps:
     workingDir: './functions'
     customCommand: 'run build --verbose'
   displayName: "Build"
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    workingDir: './functions'
+    publishRegistry: 'useFeed'
+    publishFeed: 'b976c137-b275-4fee-9ccb-2c4e0fcbbe86/90d3fc13-d675-4452-b387-0298f9621eff'
