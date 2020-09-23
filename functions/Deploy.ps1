@@ -4,6 +4,8 @@ param(
     [string]$releaseMessage
 )
 
+$ErrorView = "NormalView"
+
 $dir = Split-Path $MyInvocation.MyCommand.Path -Parent
 Push-Location $dir
 
