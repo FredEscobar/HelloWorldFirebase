@@ -29,9 +29,9 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: |
-      functions/lib/**
-      functions/package.json
-      functions/Deploy.ps1
+      **/functions/lib/**
+      **/functions/package.json
+      **/functions/Deploy.ps1
       firebase.json 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: Npm@1
