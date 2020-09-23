@@ -22,10 +22,6 @@ steps:
     workingDir: './functions'
     customCommand: 'run build --verbose'
   displayName: "Build"
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'Get-ChildItem -Recurse'
 - task: CopyFiles@2
   inputs:
     Contents: |
@@ -34,6 +30,10 @@ steps:
       **/functions/Deploy.ps1
       firebase.json 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Get-ChildItem $(Build.ArtifactStagingDirectory) -Recurse'
 - task: Npm@1
   inputs:
     command: 'publish'
