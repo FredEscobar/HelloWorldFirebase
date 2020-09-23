@@ -4,7 +4,7 @@ param(
     [string]$releaseMessage
 )
 
-$dir = Split-Path $MyInvocation.MyCommand.Path
+$dir = Split-Path $MyInvocation.MyCommand.Path -Parent
 Push-Location $dir
 
 npm i -g firebase-tools
