@@ -25,15 +25,17 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: |
-      **/functions/lib/**
-      **/functions/package.json
+      **/functions/lib/**      
       **/functions/Deploy.ps1
       firebase.json 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PowerShell@2
+  displayName: "Copy artifact files"
+- task: CopyFiles@2
   inputs:
-    targetType: 'inline'
-    script: 'Get-ChildItem $(Build.ArtifactStagingDirectory) -Recurse'
+    Contents: '**/functions/package.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+  displayName: "Copy package.json"
 - task: Npm@1
   inputs:
     command: 'publish'
