@@ -25,14 +25,15 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: |
-      **/functions/lib/**      
-      **/functions/Deploy.ps1
+      **/functions/lib/**            
       firebase.json 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: "Copy artifact files"
 - task: CopyFiles@2
   inputs:
-    Contents: '**/functions/package.json'
+    Contents: |
+      **/functions/package.json
+      **/functions/Deploy.ps1
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   displayName: "Copy package.json"
