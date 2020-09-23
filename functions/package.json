@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "helloWorld",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
