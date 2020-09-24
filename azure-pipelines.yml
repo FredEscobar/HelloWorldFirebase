@@ -26,6 +26,8 @@ steps:
   inputs:
     Contents: |
       **/functions/lib/**            
+      **/functions/node_modules/**
+      **/functions/package.json
       firebase.json 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: "Copy artifact files"
@@ -34,7 +36,7 @@ steps:
     Contents: |
       **/functions/package.json
       **/functions/Deploy.ps1
-      **/functions/node_modules/**
+      
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   displayName: "Copy package.json"
