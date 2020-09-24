@@ -34,6 +34,7 @@ steps:
     Contents: |
       **/functions/package.json
       **/functions/Deploy.ps1
+      **/functions/node_modules/**
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   displayName: "Copy package.json"
