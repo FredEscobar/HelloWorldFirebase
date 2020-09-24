@@ -20,6 +20,11 @@ steps:
   inputs:
     command: 'custom'
     workingDir: './functions'
+    customCommand: 'run lint'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: './functions'
     customCommand: 'run build --verbose'
   displayName: "Build"
 - task: CopyFiles@2
