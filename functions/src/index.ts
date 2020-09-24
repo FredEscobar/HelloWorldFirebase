@@ -5,5 +5,8 @@ import * as functions from 'firebase-functions';
 
 export const helloWorld = functions.https.onRequest((request, response) => {
   functions.logger.info("Hello logs!", {structuredData: true});
+  var a=1, b=2;
+  var result = a != b;
+  console.log(result);
   response.send("Hello from Firebase!");
 });

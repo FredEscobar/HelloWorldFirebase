@@ -21,6 +21,7 @@ steps:
     command: 'custom'
     workingDir: './functions'
     customCommand: 'run lint'
+  displayName: "Lint"
 - task: Npm@1
   inputs:
     command: 'custom'
@@ -30,10 +31,10 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: |
-      **/functions/lib/**            
+      **/functions/lib/**
       **/functions/node_modules/**
       **/functions/package.json
-      firebase.json 
+      firebase.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: "Copy artifact files"
 - task: CopyFiles@2
@@ -41,13 +42,13 @@ steps:
     Contents: |
       **/functions/package.json
       **/functions/Deploy.ps1
-      
+
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   displayName: "Copy package.json"
-- task: Npm@1
-  inputs:
-    command: 'publish'
-    workingDir: '$(Build.ArtifactStagingDirectory)'
-    publishRegistry: 'useFeed'
-    publishFeed: 'b976c137-b275-4fee-9ccb-2c4e0fcbbe86/90d3fc13-d675-4452-b387-0298f9621eff'
+# - task: Npm@1
+#   inputs:
+#     command: 'publish'
+#     workingDir: '$(Build.ArtifactStagingDirectory)'
+#     publishRegistry: 'useFeed'
+#     publishFeed: 'b976c137-b275-4fee-9ccb-2c4e0fcbbe86/90d3fc13-d675-4452-b387-0298f9621eff'
