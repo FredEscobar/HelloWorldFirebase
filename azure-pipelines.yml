@@ -32,10 +32,10 @@ steps:
   inputs:
     script: 'npm run test -- --coverage --coverageReporters=cobertura'
     workingDirectory: './functions'
-#- task: PublishCodeCoverageResults@1
-#  inputs:
-#    codeCoverageTool: 'Cobertura'
-#    summaryFileLocation: '$(System.DefaultWorkingDirectory)/functions/coverage/cobertura-coverage.xml'
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/functions/coverage/cobertura-coverage.xml'
 - task: CopyFiles@2
   inputs:
     Contents: |
