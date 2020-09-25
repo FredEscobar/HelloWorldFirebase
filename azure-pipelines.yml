@@ -30,7 +30,7 @@ steps:
   displayName: "Build"
 - task: CmdLine@2
   inputs:
-    script: 'call npm run test'
+    script: 'npm run test'
 #- task: PublishCodeCoverageResults@1
 #  inputs:
 #    codeCoverageTool: 'Cobertura'
