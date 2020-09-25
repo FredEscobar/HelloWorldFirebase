@@ -28,12 +28,9 @@ steps:
     workingDir: './functions'
     customCommand: 'run build --verbose'
   displayName: "Build"
-- task: Npm@1
+- task: CmdLine@2
   inputs:
-    command: 'custom'
-    workingDir: './functions'
-    customCommand: 'run test'
-  displayName: "Test"
+    script: 'call npm run test'
 #- task: PublishCodeCoverageResults@1
 #  inputs:
 #    codeCoverageTool: 'Cobertura'
