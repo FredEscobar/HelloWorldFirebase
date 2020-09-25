@@ -31,6 +31,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'npm run test'
+    workingDirectory: './functions'
 #- task: PublishCodeCoverageResults@1
 #  inputs:
 #    codeCoverageTool: 'Cobertura'
