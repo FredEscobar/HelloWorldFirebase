@@ -30,7 +30,7 @@ steps:
   displayName: "Build"
 - task: CmdLine@2
   inputs:
-    script: 'npm run test'
+    script: 'npm run test -- --coverage --coverageReporters=cobertura'
     workingDirectory: './functions'
 #- task: PublishCodeCoverageResults@1
 #  inputs:
