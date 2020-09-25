@@ -14,4 +14,8 @@ export class HelloWorldService{
         console.log(result);
         return this.greeting??"Hello world from HelloWorldService"
     }
+
+    public sayGoodBye():string{
+        return "Good bye! See you later";
+    }
 }
