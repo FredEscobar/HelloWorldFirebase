@@ -30,8 +30,12 @@ steps:
   displayName: "Build"
 - task: CmdLine@2
   inputs:
-    script: 'npm run test -- --coverage --coverageReporters=cobertura'
+    script: 'npm run test -- --coverage --coverageReporters=cobertura --reporters=jest-junit --reporters=default'
     workingDirectory: './functions'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/functions/junit.xml'
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
